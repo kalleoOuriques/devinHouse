@@ -5,9 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    
-    <script src="script.js"></script>
+    <header>
+        <div id="titulo">BANCO DO KALLEO</div>
+        <div id="navegador">
+            <button>Cadastro</button>
+            <button>Consulta</button>
+            <button>Depósito</button>
+            <button>Saque</button>
+        </div>
+    </header>
+    <div id="main">
+        <div id="cadastro">
+                <label for = "nome">Nome:</label>
+                <input id = "nome" type="text" name="nome">
+                <br>
+                <label for = "cell">Celular:</label>
+                <input id ="cell" type="text" name="cell">
+                <br>
+                <label for = "cpf">CPF:</label>
+                <input id ="cpf" type="text" name="cpf">
+                <br>
+                <label for = "senha">Senha:</label>
+                <input id  = "senha" type="password" name="senha">
+                <br>
+                <label for="conf_senha">Confirmação da senha:</label>
+                <input id ="conf_senha" type="password" name="conf_senha">
+                <br>
+                <div id="buttons">
+                <button  id = "enviar" >Enviar</button>
+                <button  id = "limpar">Limpar</button>
+                </div>
+        </div>
+        <div id="consulta"></div>
+        <div id="deposito"></div>
+        <div id="Saque"></div>
+    </div>
+    <footer>
+        <div id="email">
+
+        Email:
+        <a href="#">bancoKalleo@gmail.com</a>
+        </div>
+        <div id="fone">
+
+            Telefone:
+            <a href="#">(48)9 9223-7756</a>
+            </div>
+    </footer>
+    <script type="module" src="scripts/script.js"></script>
 </body>
 </html>

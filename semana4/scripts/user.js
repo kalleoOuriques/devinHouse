@@ -1,9 +1,5 @@
-
-let bd = {};
-
-
-class User {
-    constructor(nome, cpf, celular, senha){
+export default class User {
+    constructor(nome, celular, cpf,  senha){
 
         this.saldo = 0;
         this.cpf = cpf
@@ -32,15 +28,6 @@ class User {
         return this.saldo
 
     }
-    
-    
-    
 
 
-
-}
-
-function cadastro(user){
-
-    bd[user.cpf] = user
 }
