@@ -10,24 +10,6 @@ export default class User {
     }
 
 
-
-    deposito(valor){
-
-        this.saldo = valor + this.get_saldo()
-    }
-    
-    
-    saque(valor){
-    
-        this.saldo = this.get_saldo() - valor
-    
-    }
-    
-    get_saldo(){
-
-        return this.saldo
-
     }
 
 
-}
