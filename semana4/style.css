@@ -1,30 +1,33 @@
 
 
+
 body{
     display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
     flex-flow: column;
     margin: 0;
     padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("imagens/predios.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* ====================== Main ======================*/
 
 #main{
-    
-    background-image: url("imagens/predios.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
+
     display: flex;
     justify-content: center;
-    padding: 10%;
     margin-top: 0;
     
 }
 
-/* =================== Cadastro ====================*/
 
-#main>#cadastro{
-    padding: 1%;
+#main>.funcoes{
+    font-size: 20px;
+    padding: 0 1% 0 1%;
     background-color: grey;
     border-width: 5%;
     border-color:white;
@@ -37,68 +40,21 @@ body{
     flex-flow: column;
 }
 
+#main>.funcoes>*{
+    margin-top: 8%;
+}
 
-#main>#cadastro>#cad_buttons{
+/* =================== Cadastro ====================*/
+
+#main>.funcoes>.botoes{
     display: flex;
 }
 
-#main>#cadastro>#cad_buttons>button{
-    transition-duration: 0.4s;
-    margin: auto;
-    border-color: white;
-    border-width: 5%;
-    padding: 5%;
-    border-style: solid;
-    border-radius: 50%;
-    font-size: medium;
-    
-    background: none;
-    font-weight: bold;
-    color: white;
-}
 
-#main>#cadastro>#cad_buttons>button:hover{
-    background: white;
-    color:grey;
-    font-weight: bold;
-}
 
 /* =================== Consulta ====================*/
 
-#main>#consulta>.con_parts{
-    padding: 8%;
-    background-color: grey;
-    border-width: 5%;
-    border-color:white;
-    border-style: solid;
-    border-radius: 8%;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-}
 
-#main>#consulta>.con_parts>.con_enviar{
-    transition-duration: 0.4s;
-    margin: auto;
-    border-color: white;
-    border-width: 5%;
-    padding: 5%;
-    border-style: solid;
-    border-radius: 50%;
-    font-size: medium;
-
-    background: none;
-    font-weight: bold;
-    color: white;
-}
-
-#main>#consulta>.con_parts>.con_enviar:hover{
-    background: white;
-    color:grey;
-    font-weight: bold;
-}
 
 #main>#consulta>#con_part_2>div{
     width: 15vw;
@@ -106,23 +62,8 @@ body{
 
 /* =================== Deposito ====================*/
 
-#main>#deposito{
-    padding: 1%;
-    background-color: grey;
-    border-width: 5%;
-    border-color:white;
-    border-style: solid;
-    border-radius: 8%;
-}
-#main>#deposito{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-}
+#main>.funcoes>.botoes>.envia{
 
-#main>#deposito>#dep_enviar{
     transition-duration: 0.4s;
     margin: auto;
     border-color: white;
@@ -130,56 +71,18 @@ body{
     padding: 5%;
     border-style: solid;
     border-radius: 50%;
-    font-size: medium;
+    font-size: 20px;
 
     background: none;
     font-weight: bold;
     color: white;
 }
 
-#main>#deposito>#dep_enviar:hover{
+#main>.funcoes>.botoes>.envia:hover{
     background: white;
     color:grey;
     font-weight: bold;
 }
-/* =================== SAQUE ====================*/
-
-#main>#saque{
-    padding: 1%;
-    background-color: grey;
-    border-width: 5%;
-    border-color:white;
-    border-style: solid;
-    border-radius: 8%;
-}
-#main>#saque{
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-}
-
-#main>#saque>#saq_enviar{
-    transition-duration: 0.4s;
-    margin: auto;
-    border-color: white;
-    border-width: 5%;
-    padding: 5%;
-    border-style: solid;
-    border-radius: 50%;
-    font-size: medium;
-
-    background: none;
-    font-weight: bold;
-    color: white;
-}
-
-#main>#saque>#saq_enviar:hover{
-    background: white;
-    color:grey;
-    font-weight: bold;}
-
 
 /* =================== HEADER ====================*/
 header{
@@ -195,7 +98,8 @@ header>#navegador{
 }
 header>#navegador>button{
     transition-duration: 0.4s;
-    font-size: medium;
+    font-size: 20px;
+    margin-left: 20px;
     border: none;
     background: none;
     font-weight: bold;
@@ -209,7 +113,7 @@ header>#navegador>button:hover{
 }
 
 header>#titulo{
-    font-size: xx-large;
+    font-size: 50px;
     font-style: italic;
     font-weight: bold;
     color: whitesmoke;
@@ -221,6 +125,7 @@ footer{
     display: flex;
     justify-content: space-evenly;
     background-color: grey;
+    font-size: 30px;
 }
 footer>#email{
   

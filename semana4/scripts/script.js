@@ -6,21 +6,21 @@ if (!localStorage.getItem("bd")) {
 
 /* ============ Consultar ========== */
 
-let con_part_1 = document.getElementById('con_part_1');
-let con_part_2 = document.getElementById('con_part_2');
+let con_part_1 = document.getElementById("con_part_1");
+let con_part_2 = document.getElementById("con_part_2");
 
-con_part_1.style.display = 'flex';
-con_part_2.style.display = 'none';
+con_part_1.style.display = "none";
+con_part_2.style.display = "none";
 
 let con_cpf = document.getElementById("con_cpf");
 let con_senha = document.getElementById("con_senha");
 let con_enviar = document.getElementById("con_enviar");
-let con_status = document.getElementById('con_status');
+let con_status = document.getElementById("con_status");
 
-let nome_con2 = document.getElementById('nome_con2');
-let cpf_con2 = document.getElementById('cpf_con2');
-let cell_con2 = document.getElementById('cell_con2');
-let saldo_con2 = document.getElementById('saldo_con2');
+let nome_con2 = document.getElementById("nome_con2");
+let cpf_con2 = document.getElementById("cpf_con2");
+let cell_con2 = document.getElementById("cell_con2");
+let saldo_con2 = document.getElementById("saldo_con2");
 
 let con_r_enviar = document.getElementById("con_r_enviar");
 
@@ -28,66 +28,52 @@ let cpf_con = "";
 let senha_con = "";
 
 con_cpf.addEventListener("blur", (e) => {
-    cpf_con = e.target.value;
+  cpf_con = e.target.value;
 });
 
 con_senha.addEventListener("blur", (e) => {
-    senha_con = e.target.value;
+  senha_con = e.target.value;
 });
 
-con_r_enviar.addEventListener("click", () =>{
-    con_part_1.style.display = 'flex';
-    con_part_2.style.display = 'none';
-    con_status.innerText = '';
-})
+con_r_enviar.addEventListener("click", () => {
+  con_part_1.style.display = "flex";
+  con_part_2.style.display = "none";
+  con_status.innerText = "";
+});
 
 con_enviar.addEventListener("click", () => {
-    let status;
-    if(cpf_con != '' && senha_con != ''){
+  let status;
+  if (cpf_con != "" && senha_con != "") {
+    let db = JSON.parse(localStorage.getItem("bd"));
+    if (Object.keys(db).includes(cpf_con)) {
+      if (db[cpf_con].senha == senha_con) {
+        con_part_1.style.display = "none";
+        con_part_2.style.display = "flex";
 
-        let db = JSON.parse(localStorage.getItem('bd'));
-        if (Object.keys(db).includes(cpf_con)) {
+        const nome = db[cpf_con].nome;
+        const cpf = cpf_con;
+        const cell = db[cpf_con].celular;
+        const saldo = Math.round(db[cpf_con].saldo);
 
-            if(db[cpf_con].senha == senha_con){
-
-                con_part_1.style.display = 'none';
-                con_part_2.style.display = 'flex';
-                
-                const nome = db[cpf_con].nome;
-                const cpf = cpf_con;
-                const cell = db[cpf_con].celular;
-                const saldo = Math.round(db[cpf_con].saldo);
-
-                nome_con2.innerText = `Nome: ${nome}`;
-                cpf_con2.innerText = `CPF: ${cpf}`;
-                cell_con2.innerText = `Celular: ${cell}`;
-                saldo_con2.innerText = `Saldo: ${saldo}`;
-
-
-            } else {
-
-                status = 'Senha incorreta!'
-            }
-        } else {
-
-            status = 'Este CPF ainda não foi cadastrado!'
-        }
-
-
+        nome_con2.innerText = `Nome: ${nome}`;
+        cpf_con2.innerText = `CPF: ${cpf}`;
+        cell_con2.innerText = `Celular: ${cell}`;
+        saldo_con2.innerText = `Saldo: ${saldo}`;
+      } else {
+        status = "Senha incorreta!";
+      }
     } else {
-
-        status = 'Nenhum campo pode ficar vazio!'
-
+      status = "Este CPF ainda não foi cadastrado!";
     }
-    cpf_con = '';
-    senha_con = '';
-    con_cpf.value = '';
-    con_senha.value = '';
-    con_status.innerText = status;
-    con_status.style.color = '#B22222';
-
-
-
+  } else {
+    status = "Nenhum campo pode ficar vazio!";
+  }
+  cpf_con = "";
+  senha_con = "";
+  con_cpf.value = "";
+  con_senha.value = "";
+  con_status.innerText = status;
+  con_status.style.color = "#B22222";
 });
 
 /* ============ Cadastro ========== */
@@ -152,7 +138,7 @@ cad_enviar.addEventListener("click", () => {
   } else {
     status = "Nenhum campo pode ficar vazio!";
   }
-  
+
   status_res.innerText = status;
   status_res.style.color = color;
 });
@@ -180,151 +166,119 @@ cad_limpar.addEventListener("click", () => {
   limpar_cad();
 });
 
-
 /* ============ Deposito ========== */
 
-let dep_cpf = document.getElementById('dep_cpf');
-let dep_valor = document.getElementById('dep_valor');
-let dep_enviar = document.getElementById('dep_enviar');
+let dep_cpf = document.getElementById("dep_cpf");
+let dep_valor = document.getElementById("dep_valor");
+let dep_enviar = document.getElementById("dep_enviar");
 
+let dep_cpf_in = "";
+let dep_valor_in = "";
 
-let dep_cpf_in = '';
-let dep_valor_in = '';
+dep_cpf.addEventListener("blur", (e) => {
+  dep_cpf_in = e.target.value;
+});
 
-dep_cpf.addEventListener('blur', (e) => {
-
-    dep_cpf_in = e.target.value;
-    
-})
-
-
-dep_valor.addEventListener('blur', (e) => {
-
-    dep_valor_in = e.target.value;
-
-})
+dep_valor.addEventListener("blur", (e) => {
+  dep_valor_in = e.target.value;
+});
 
 function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-dep_enviar.addEventListener('click', () =>{
+dep_enviar.addEventListener("click", () => {
+  let status;
+  let color = "#B22222";
+  if (dep_cpf_in != "" && dep_valor_in != "") {
+    let db = JSON.parse(localStorage.getItem("bd"));
+    if (Object.keys(db).includes(dep_cpf_in)) {
+      if (isNumber(dep_valor_in)) {
+        db[dep_cpf_in].saldo += parseFloat(dep_valor_in);
+        localStorage.setItem("bd", JSON.stringify(db));
 
-    let status;
-    let color = '#B22222';
-    if(dep_cpf_in != '' && dep_valor_in != ''){ 
+        status = "Deposito feito com sucesso!";
+        color = "#00FF00";
+      } else {
+        status = "O valor digitado é irregular!";
+      }
+    } else {
+      status = "Este CPF ainda não foi cadastrado!";
+    }
+  } else {
+    status = "Nenhum campo pode ficar vazio!";
+  }
 
-        let db = JSON.parse(localStorage.getItem('bd'));
-        if (Object.keys(db).includes(dep_cpf_in)) {
-
-                if (isNumber(dep_valor_in)) {
-                    
-                    db[dep_cpf_in].saldo += parseFloat(dep_valor_in);
-                    localStorage.setItem('bd', JSON.stringify(db));
-
-                    status = 'Deposito feito com sucesso!'
-                    color = "#00FF00";
-
-                } else {
-
-                    status = 'O valor digitado é irregular!'
-                }
-            
-            } else {
-                
-                status = 'Este CPF ainda não foi cadastrado!'
-            }
-        } else {
-            status = 'Nenhum campo pode ficar vazio!'
-            
-        }
-
-
-    dep_cpf_in = '';
-    dep_valor_in = '';
-    dep_cpf.value = '';
-    dep_valor.value = '';
-    dep_status.innerText = status;
-    dep_status.style.color = color;
-
-    })
+  dep_cpf_in = "";
+  dep_valor_in = "";
+  dep_cpf.value = "";
+  dep_valor.value = "";
+  dep_status.innerText = status;
+  dep_status.style.color = color;
+});
 
 /* ============ Saque ========== */
 
+let saq_cpf = document.getElementById("saq_cpf");
+let saq_senha = document.getElementById("saq_senha");
+let saq_valor = document.getElementById("saq_valor");
+let saq_enviar = document.getElementById("saq_enviar");
+let saq_status = document.getElementById("saq_status");
 
-let saq_cpf = document.getElementById('saq_cpf');
-let saq_senha = document.getElementById('saq_senha');
-let saq_valor = document.getElementById('saq_valor');
-let saq_enviar = document.getElementById('saq_enviar');
-let saq_status = document.getElementById('saq_status');
+let saq_cpf_in = "";
+let saq_senha_in = "";
+let saq_valor_in = "";
 
-let saq_cpf_in = '';
-let saq_senha_in = '';
-let saq_valor_in = '';
+saq_cpf.addEventListener("blur", (e) => {
+  saq_cpf_in = e.target.value;
+});
 
-saq_cpf.addEventListener('blur', (e)=>{
+saq_senha.addEventListener("blur", (e) => {
+  saq_senha_in = e.target.value;
+});
 
-    saq_cpf_in = e.target.value;
-})
+saq_valor.addEventListener("blur", (e) => {
+  saq_valor_in = e.target.value;
+});
 
-saq_senha.addEventListener('blur', (e)=>{
+saq_enviar.addEventListener("click", () => {
+  let status;
+  let color = "#B22222";
+  if (saq_cpf_in != "" && saq_senha_in != "" && saq_valor_in != "") {
+    if (isNumber(saq_valor_in) && saq_valor_in[0] != "-") {
+      let db = JSON.parse(localStorage.getItem("bd"));
+      if (Object.keys(db).includes(saq_cpf_in)) {
+        if (db[saq_cpf_in].senha == saq_senha_in) {
+          if (!(db[saq_cpf_in].saldo - parseFloat(saq_valor_in) < 0)) {
+            db[saq_cpf_in].saldo -= parseFloat(saq_valor_in);
+            localStorage.setItem("bd", JSON.stringify(db));
 
-    saq_senha_in = e.target.value;
-})
-
-saq_valor.addEventListener('blur', (e)=>{
-
-    saq_valor_in = e.target.value;
-})
-
-saq_enviar.addEventListener('click', ()=>{
-
-    let status;
-    let color = '#B22222';
-    if(saq_cpf_in != '' && saq_senha_in != '' && saq_valor_in != ''){
-        if (isNumber(saq_valor_in) && saq_valor_in[0] != '-'){
-        let db = JSON.parse(localStorage.getItem('bd'));
-            if (Object.keys(db).includes(saq_cpf_in)) {
-
-                if(db[saq_cpf_in].senha == saq_senha_in){
-
-                    db[saq_cpf_in].saldo -= parseFloat(saq_valor_in);
-                    localStorage.setItem('bd', JSON.stringify(db));
-
-                    status = 'Saque feito com sucesso!'
-                    color = "#00FF00";
-
-                } else {
-
-                    status = 'Senha incorreta!'
-                }
-            } else {
-
-                status = 'Este CPF ainda não foi cadastrado!'
-
-            }
+            status = "Saque feito com sucesso!";
+            color = "#00FF00";
+          } else {
+            status = "Saldo insuficiente";
+          }
         } else {
-
-            status = 'O valor digitado é irregular!'
+          status = "Senha incorreta!";
         }
-
-
+      } else {
+        status = "Este CPF ainda não foi cadastrado!";
+      }
     } else {
-
-        status = 'Nenhum campo pode ficar vazio!'
-
+      status = "O valor digitado é irregular!";
     }
-    saq_cpf_in = '';
-    saq_senha_in = '';
-    saq_valor_in = '';
-    saq_cpf.value = '';
-    saq_senha.value = '';
-    saq_valor.value = '';
-    saq_status.innerText = status;
-    saq_status.style.color = color;
-
-    
-})
+  } else {
+    status = "Nenhum campo pode ficar vazio!";
+  }
+  saq_cpf_in = "";
+  saq_senha_in = "";
+  saq_valor_in = "";
+  saq_cpf.value = "";
+  saq_senha.value = "";
+  saq_valor.value = "";
+  saq_status.innerText = status;
+  saq_status.style.color = color;
+});
 
 /* ============ Navegador ========== */
 
@@ -335,20 +289,21 @@ let nav_saq = document.getElementById("nav_saq");
 
 let home = document.getElementById("home");
 let cadastro = document.getElementById("cadastro");
-let consulta = document.getElementById("consulta");
+
 let saque = document.getElementById("saque");
 let deposito = document.getElementById("deposito");
 
 cadastro.style.display = "none";
-consulta.style.display = "none";
+
 saque.style.display = "none";
 deposito.style.display = "none";
 
 nav_cad.addEventListener("click", () => {
   home.style.display = "none";
   cadastro.style.display = "flex";
-  status_res.innerText = '';
-  consulta.style.display = "none";
+  con_part_1.style.display = "none";
+  con_part_2.style.display = "none";
+  status_res.innerText = "";
   saque.style.display = "none";
   deposito.style.display = "none";
 });
@@ -356,8 +311,9 @@ nav_cad.addEventListener("click", () => {
 nav_con.addEventListener("click", () => {
   home.style.display = "none";
   cadastro.style.display = "none";
-  consulta.style.display = "flex";
-  con_status.innerText = '';
+  con_part_1.style.display = "flex";
+  con_part_2.style.display = "none";
+  con_status.innerText = "";
   saque.style.display = "none";
   deposito.style.display = "none";
 });
@@ -365,17 +321,19 @@ nav_con.addEventListener("click", () => {
 nav_saq.addEventListener("click", () => {
   home.style.display = "none";
   cadastro.style.display = "none";
-  consulta.style.display = "none";
+  con_part_1.style.display = "none";
+  con_part_2.style.display = "none";
   saque.style.display = "flex";
-  saq_status.innerText = '';
+  saq_status.innerText = "";
   deposito.style.display = "none";
 });
 
 nav_dep.addEventListener("click", () => {
   home.style.display = "none";
   cadastro.style.display = "none";
-  consulta.style.display = "none";
+  con_part_1.style.display = "none";
+  con_part_2.style.display = "none";
   saque.style.display = "none";
   deposito.style.display = "flex";
-  dep_status.innerText = '';
+  dep_status.innerText = "";
 });

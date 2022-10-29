@@ -19,85 +19,84 @@
         </div>
     </header>
     <div id="main">
-        <div id="home">Home</div>
-        <div id="cadastro">
+        <div id="home"></div>
+        <div id="cadastro" class="funcoes">
                 <label for = "nome">Nome:</label>
                 <input id = "cad_nome" type="text" name="nome">
-                <br>
+                
                 <label for = "cell">Celular:</label>
                 <input id ="cad_cell" type="text" name="cell">
-                <br>
+           
                 <label for = "cpf">CPF:</label>
                 <input id ="cad_cpf" type="text" name="cpf">
-                <br>
+             
                 <label for = "senha">Senha:</label>
                 <input id  = "cad_senha" type="password" name="senha">
-                <br>
+               
                 <label for="conf_senha">Confirmação da senha:</label>
                 <input id ="cad_conf_senha" type="password" name="conf_senha">
-                <br>
-                <div id="cad_buttons">
-                <button  id = "cad_enviar" >Cadastrar</button>
-                <button  id = "cad_limpar">Limpar</button>
+           
+                <div class = 'botoes'>
+                <button  id = "cad_enviar" class="envia" >Cadastrar</button>
+                <button  id = "cad_limpar" class="envia">Limpar</button>
                 </div>
-                <br>
+               
                 <div id="cad_status"></div>
         </div>
-        <div id="consulta">
-            <div class = 'con_parts' id = "con_part_1">
+            
+            <div class = 'funcoes' id = "con_part_1">
                 <label for = "con_cpf">CPF:</label>
                 <input id = "con_cpf" type="text" name="con_cpf">
-                <br>
+                
                 <label for = "con_senha">Senha:</label>
                 <input id = "con_senha" type="password" name="con_senha">
-                <br>
-                <button  class = 'con_enviar' id = "con_enviar" >Consultar</button>
-                <br>
+                <div class = 'botoes'>
+                <button  class ='envia' id = "con_enviar" >Consultar</button>
+                </div>
                 <div id="con_status"></div>
             </div>
-            <div class = 'con_parts' id = "con_part_2">
+            <div class = 'funcoes' id = "con_part_2">
                 
                     <div id = 'nome_con2'></div>
-                    <br>
+            
                     <div id = 'cpf_con2'></div>
-                    <br>
+              
                     <div id = 'cell_con2'></div>
-                    <br>
+                 
                     <div id = 'saldo_con2'></div>
-                    <br>
-                    <button  class = 'con_enviar' id = "con_r_enviar">Refazer consulta</button>
-                
+                    <div class = 'botoes'>
+                    <button  class ='envia' id = "con_r_enviar">Refazer consulta</button>
+                    </div>
+                    <div></div>
             </div>
-
-        </div>
-        <div id="deposito">
+        <div id="deposito" class="funcoes">
             <label for = "dep_cpf">CPF:</label>
             <input id = "dep_cpf" type="text" name="dep_cpf">
-            <br>
+       
             <label for = "dep_valor">Valor:</label>
             <input id = "dep_valor" type="text" name="dep_cpf">
-            <br>
-            <button  id = "dep_enviar" >Depositar</button>
-            <br>
+            <div class = 'botoes'>
+            <button  id = "dep_enviar" class ='envia' >Depositar</button>
+            </div>
             <div id="dep_status"></div>
         </div>
-        <div id="saque">
+        <div id="saque" class ="funcoes">
             <label for = "saq_cpf">CPF:</label>
             <input id = "saq_cpf" type="text" name="saq_cpf">
-            <br>
+       
             <label for = "saq_senha">Senha:</label>
             <input id = "saq_senha" type="password" name="saq_senha">
-            <br>
+        
             <label for = "saq_valor">Valor:</label>
             <input id = "saq_valor" type="text" name="saq_cpf">
-            <br>
-            <button  id = "saq_enviar" >Sacar</button>
-            <br>
+            <div class = 'botoes'>
+            <button  id = "saq_enviar" class ='envia' >Sacar</button>
+            </div>
             <div id="saq_status"></div>
         </div>
     </div>
     <footer>
-        <div id="email">
+        <div id="email" >
 
         Email:
         <a href="#">bancoKalleo@gmail.com</a>
