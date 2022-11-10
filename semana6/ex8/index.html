@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .user{
+            margin-top: 20px;
+            display: flex;
+            background-color: aquamarine;
+        }
+
+        .inf{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            
+        }
+
+        .inf>*{
+            margin-left: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Usuários do sistema</h2>
+    <form id="form">
+        <input type="number" name = 'numero' min="1">
+        <button type="submit">GERAR</button>
+    </form>
+    <div id = 'users'></div>
+    <script src="./index.js"></script>
+</body>
+</html>
