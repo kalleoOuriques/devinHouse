@@ -1,0 +1,18 @@
+<app-nav-bar
+  (eventFormSchool)="appSchoolForm($event)"
+  (eventSerieCard)="appSerieCard($event)"
+  (eventBusca)="appBusca($event)"
+></app-nav-bar>
+
+<div class="container formStyle">
+  <div class="row">
+    <div class="col">
+      <app-card [ngClass]="{'cardShow': serieCard}" [cPersonagem]="p"></app-card>
+      <app-form [ngClass]="{'formShow': schoolForm}"></app-form>
+      <app-busca 
+      (eventTexto)="appTexto($event)"
+      [ngClass]="{'buscaShow': busca}" 
+      ></app-busca>
+    </div>
+  </div>
+</div>

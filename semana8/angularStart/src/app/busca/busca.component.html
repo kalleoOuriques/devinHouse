@@ -1,0 +1,8 @@
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body ">
+      <h5 class="card-title text-center">Digite seu texto</h5>
+      <textarea class="form-control  mt-3 mb-3" [(ngModel)] = "texto" (ngModelChange)="eventTexto.emit(texto)" aria-label="With textarea" maxlength="580"></textarea>
+      <p class="card-text">{{texto}}</p>
+    </div>
+</div>

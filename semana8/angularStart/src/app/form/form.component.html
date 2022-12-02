@@ -1,0 +1,88 @@
+<form class="container bg-light rounded p-4 border border-primary">
+  <div class="row">
+    <div class="col">
+      <div class="form-group mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" [(ngModel)]="nome" id="nome" name="NOME" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="Haulas">Horas aula</label>
+        <input min="1" type="number" class="form-control" [(ngModel)]="horasAula" id="Haulas" name="HAULAS" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="escola">Escola</label>
+        <input type="text" class="form-control" [(ngModel)]="escola" id="escola" name="ESCOLA"/>
+      </div>
+      <select class="form-select mb-3">
+        <option selected>Selecione o Professor(a)</option>
+        <option value="1">Otávio</option>
+        <option value="2">Vivian</option>
+        <option value="3">Leandro</option>
+        <option value="3">Cláudia</option>
+      </select>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          Optativa
+        </label>
+      </div>
+      <div class="form-check mb-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Obrigatória
+        </label>
+      </div>
+      <div class="text-center">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          (click)="cadastrar()"
+        >
+          Registrar
+        </button>
+      </div>
+      <div>
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-body">Formulário enviado com sucesso!</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
