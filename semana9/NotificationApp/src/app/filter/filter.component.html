@@ -1,10 +1,10 @@
-<div class="btn-group mt-3 ms-1 mb-3" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" routerLink="/home/todos" name="btnradio" id="btnradio1" autocomplete="off" [checked]='check.todos'>
-    <label class="btn btn-outline-dark" for="btnradio1">Todos</label>
-  
-    <input type="radio" class="btn-check" routerLink="/home/nao-lidos" name="btnradio" id="btnradio2" autocomplete="off" [checked]='check.nao_lidos'>
-    <label class="btn btn-outline-dark" for="btnradio2">Não lidos</label>
-  
-    <input type="radio" class="btn-check" routerLink="/home/lidos" name="btnradio" id="btnradio3" autocomplete="off" [checked]='check.lidos'>
-    <label class="btn btn-outline-dark" for="btnradio3">Lidos</label>
-  </div>
+
+
+<div class="btn-group mt-3 ms-1 mb-3">
+  <a routerLink="/home/todos"
+  routerLinkActive="active" class="btn btn-outline-dark">Todos</a>
+  <a  routerLink="/home/nao-lidos"
+  routerLinkActive="active" class="btn btn-outline-dark">Não Lidos</a>
+  <a routerLink="/home/lidos"
+  routerLinkActive="active" class="btn btn-outline-dark">Lidos</a>
+</div>
